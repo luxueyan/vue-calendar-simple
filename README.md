@@ -1,7 +1,14 @@
 # vue-calendar-simple
 
 > A simple calendar
->
+
+## Dependence
+
+The component depend on loadsh, you need run 'npm install lodash -S' first for regular using.
+
+## Example
+
+[example](https://luxueyan.github.io/Vue-Calendar-Simple/example/index.html)
 
 ## Install
 
