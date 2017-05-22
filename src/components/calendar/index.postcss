@@ -1,0 +1,106 @@
+@charset "UTF-8"
+@import "../_vars.postcss"
+
+@component-namespace cs
+  @b header
+    color: var(--text-color)
+    line-height: 40px
+    height: 40px
+    text-align: center
+    background-color: var(--header-color)
+    position: relative
+    @e switch
+      width: 24px
+      height: 24px
+      position: absolute 50% 10px * *
+      transform: translateY(-50%)
+      cursor: pointer
+      @when collapse
+        &>.line
+          &:first-child
+            transform: translateY(0)
+          &:last-child
+            transform: translateY(0)
+      &>.line
+        transition: transform .3s ease-in
+        line-height: 0px
+        position: absolute 10px * * *
+        &:first-child
+          transform: translateY(-7px)
+        &:last-child
+          transform: translateY(7px)
+      &:hover
+        .cs-icon__circle
+          background-color: var(--blue-color)
+    @e inner
+  @b icon
+    @e circle
+      vertical-align: middle
+      display: inline-block
+      size: 4px
+      border-radius: 50%
+      background-color: var(--gray-text-color)
+      margin: 0 2px
+    @e arrow-left
+      display: inline-block
+      size: 7px
+      border: 1px 0 0 1px var(--gray-text-color)
+      border-style: solid
+      transform: rotate(-45deg)
+      vertical-align: 1px
+      cursor: pointer
+      &:hover, &:active
+        border-color: var(--blue-color)
+    @e arrow-right
+      display: inline-block
+      size: 7px
+      border: 1px 1px 0 0 var(--gray-text-color)
+      border-style: solid
+      transform: rotate(45deg)
+      vertical-align: 1px
+      cursor: pointer
+      &:hover, &:active
+        border-color: var(--blue-color)
+  @b body
+    td
+      &:before
+        display: block
+        content: ''
+        padding-bottom: 100%
+    @e cell-assist
+      padding-bottom: 100%
+    @e row
+      text-align: right
+    @e cell
+      cursor: pointer
+      position: absolute 0 0 0 0
+      padding: 10px
+      color: var(--text-reverse-color)
+      @m gray
+        color: rgba(128, 128, 128, .3)
+      &:hover
+        background-color: var(--blue-light-color)
+      @when today
+        background-color: var(--blue-light-color)
+        &:after
+          content: ''
+          position: absolute 0 0 * *
+          size: 0
+          border: 5px var(--blue-color) var(--blue-color) transparent transparent solid
+      @when disabled
+        cursor: not-allowed
+    table
+      width: 100%
+      border-collapse: collapse
+      border-spacing: 0
+    th,td
+      border: 1px solid white
+    td
+      background: var(--header-color)
+      position: relative
+    th
+      font-size: 13px
+      color: #3e4b5c
+      padding: 14px 5px
+
+

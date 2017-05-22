@@ -1,0 +1,42 @@
+.cs
+  .cs-header
+    .cs-header__inner
+      slot(name="header")
+        i.cs-icon__arrow-left(@click="prev")
+        dropdown(v-model="activeMonthMut", :items="months")
+        dropdown(v-model="activeYearMut", :items="years", v-show="calendarViewMut === CalendarViewWay.Month")
+        dropdown(v-model="activeWeekMut", :items="weeks", v-show="calendarViewMut === CalendarViewWay.Week")
+        i.cs-icon__arrow-right(@click="next")
+      .cs-header__switch(@click="toggleCalendarView", :class="calendarClass")
+        div.line
+          i.cs-icon__circle
+          i.cs-icon__circle
+          i.cs-icon__circle
+        div.line
+          i.cs-icon__circle
+          i.cs-icon__circle
+          i.cs-icon__circle
+        div.line
+          i.cs-icon__circle
+          i.cs-icon__circle
+          i.cs-icon__circle
+  .cs-body
+    table
+      colgroup
+        col(width="100")
+        col(width="100")
+        col(width="100")
+        col(width="100")
+        col(width="100")
+        col(width="100")
+        col(width="100")
+      thead.cs-week-row
+        tr
+          th(v-for="w in weekShowDays") {{w}}
+      tbody.cs-days
+        tr(v-for="(row,index) in filterCalendarMatrix")
+          td(v-for="day in row")
+            .cs-body__cell(:class="{'is-today': +new Date(activeYearMut, activeMonthMut, day) === todayDate,'cs-body__cell--gray': day < 0}")
+              .cs-body__row {{day < 0 ? -day : day}}
+              slot(:date="_getDate(index, day)")
+

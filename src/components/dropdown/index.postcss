@@ -1,0 +1,49 @@
+@import "../_vars.postcss"
+
+@component-namespace cs
+  @b dropdown
+    width: 60px
+    height: 100%
+    display: inline-block
+    position: relative
+    vertical-align: top
+    @e value
+      font-size: 13px
+      height: 100%
+      &:hover
+        background: var(--blue-light-color)
+        cursor: pointer
+      input
+        text-align: center
+        cursor: pointer
+        height: 100%
+        width: 100%
+        -webkit-appearance: none
+        border: 0
+        background: none
+    @when opened
+      .cs-dropdown__list
+        display: block
+    @e list
+      background: var(--header-color)
+      list-style: none
+      /* border: 0 1px 1px 1px rgba(0,0,0,.05) solid */
+      padding: 0
+      margin: 0
+      position: absolute 40px 0 *
+      display: none
+      z-index: 99
+      max-height: 200px
+      overflow-y: auto
+      li
+        padding: 0 5px
+        line-height: 30px
+        font-size: 13px
+        cursor: pointer
+        &:hover
+          background: var(--blue-light-color)
+          color: var(--text-reverse-color)
+        @when active
+          background: var(--blue-light-color)
+          color: var(--text-reverse-color)
+

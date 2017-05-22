@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "dom",
+      "es2015",
+      "es2015.promise"
+    ],
+    "module": "es2015",
+    "moduleResolution": "node",
+    "isolatedModules": false,
+    "experimentalDecorators": true,
+    "noImplicitAny": false,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "removeComments": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "typeRoots": [
+    "node_modules/@types",
+    "./src/types"
+  ],
+  "types": [
+    "chai",
+    "mocha",
+    "node",
+    "webpack",
+    "webpack-env",
+    // "requirejs",
+    "sinon",
+    "sinon-chai"
+  ],
+  "include": [
+    "./src/**/*.ts"
+  ],
+  "exclude": ["node_modules"],
+  "compileOnSave": false
+}

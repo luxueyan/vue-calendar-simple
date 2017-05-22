@@ -1,0 +1,5 @@
+.cs-dropdown(:class="{'is-opened': opened}")
+  .cs-dropdown__value(@click="toggleList")
+    input(type="text", readonly, :value="currentItem.name")
+  ul.cs-dropdown__list
+    li.cs-dropdown__item(v-for="item in items", :key="item.value", :value="item.value", :class="{'is-active': item.value === currentItem.value}", @click="itemClick(item)") {{item.name}}
