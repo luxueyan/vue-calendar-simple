@@ -1,9 +1,9 @@
 {
-  "name": "Vue-Canlendar-Simple",
+  "name": "vue-calendar-simple",
   "version": "1.0.0",
   "description": "A simple canlendar vue component",
   "author": "luxueyan <281545294@qq.com>",
-  "private": true,
+  "private": false,
   "main": "dist/calendar/index.js",
   "style": "dist/calendar/index.css",
   "module": "src/index.ts",
