@@ -4,7 +4,7 @@
 
 ## Dependence
 
-The component depend on loadsh, you need run 'npm install lodash -S' first for regular using.
+The component depend on lodash, you need run 'npm install lodash -S' first for regular using.
 
 ## Example
 

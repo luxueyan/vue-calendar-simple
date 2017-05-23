@@ -9,7 +9,7 @@ import Dropdown from '../dropdown'
 import calendarMatrix from './calendar-matix'
 import { WeekdayType, CalendarViewWay } from '../../enums'
 import { map } from 'lodash'
-const template: Function = require < Function > ('./index.pug')
+const template: Function = require<Function>('./index.pug')
 
 const currentDate = new Date()
 
@@ -60,7 +60,7 @@ export default class Calendar extends Vue {
     }
   }
 
-  _getCalendarMatrix(resetWeek ? : boolean) {
+  _getCalendarMatrix(resetWeek?: boolean) {
     this.activeWeekMut = resetWeek ? 0 : this._getWeekInCurrentMonth(this._defaultDate)
     this.calendarMatrix = calendarMatrix(this.activeYearMut, this.activeMonthMut, this.weekDayType)
   }

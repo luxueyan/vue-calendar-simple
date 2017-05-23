@@ -15,7 +15,7 @@ module.exports = {
   // required to lint *.vue files
   plugins: [
     'html',
-    'tslint'
+    'tslint' // not work unless use the 'typescript-eslint-parser'
   ],
   // add your custom rules here
   'rules': {
