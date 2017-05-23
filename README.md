@@ -8,7 +8,7 @@ The component depend on loadsh, you need run 'npm install lodash -S' first for r
 
 ## Example
 
-[example](https://luxueyan.github.io/Vue-Calendar-Simple/example/index.html)
+[example](https://luxueyan.github.io/vue-calendar-simple/example/index.html)
 
 ## Install
 

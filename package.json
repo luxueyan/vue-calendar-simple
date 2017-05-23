@@ -10,8 +10,9 @@
   "scripts": {
     "dev": "node build/dev-server.js",
     "start": "node build/dev-server.js",
-    "build": "cross-env NODE_ENV=production node build/build.js",
+    "build:lb": "cross-env NODE_ENV=production node build/build.js",
     "build:ex": "cross-env NODE_ENV=example node build/build.js",
+    "build": "npm run build:lb && npm run build:ex",
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
