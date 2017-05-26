@@ -24,6 +24,7 @@ module.exports = {
     }
   },
   module: {
+    rules: [
     // {
     //   test: /\.(ts)$/,
     //   loader: 'tslint-loader',
@@ -71,7 +72,7 @@ module.exports = {
     //     // for your continuous integration server
     //     fileOutput: {
     //       // The directory where each file's report is saved
-    //       dir: './foo/',
+    //       dir: './report/',
 
     //       // The extension to use for each report's filename. Defaults to 'txt'
     //       ext: 'xml',
@@ -89,8 +90,8 @@ module.exports = {
     //     }
     //   }
     // },
-    rules: [{
-      test: /\.(js|ts|vue)$/,
+    {
+      test: /\.(ts|js|vue)$/,
       loader: 'eslint-loader',
       enforce: 'pre',
       include: [resolve('src'), resolve('test')],

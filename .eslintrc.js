@@ -2,8 +2,8 @@
 
 module.exports = {
   root: true,
-  parser: 'babel-eslint',
-  // parser: 'typescript-eslint-parser',
+  // parser: 'babel-eslint',
+  parser: 'typescript-eslint-parser',
   parserOptions: {
     sourceType: 'module'
   },
@@ -15,7 +15,7 @@ module.exports = {
   // required to lint *.vue files
   plugins: [
     'html',
-    'tslint'
+    'tslint' // not work unless use the 'typescript-eslint-parser'
   ],
   // add your custom rules here
   'rules': {
@@ -27,6 +27,12 @@ module.exports = {
     'indent': [2, 2, {
       'SwitchCase': 1
     }],
+
+    // for typescript-eslint-parser issues
+    'no-undef': 0,
+    'no-unused-vars': 0,
+    'no-useless-constructor': 0,
+    'space-infix-ops': 0,
 
     // allow async-await
     'generator-star-spacing': 0,
