@@ -23,7 +23,10 @@ var webpackConfig = merge(baseWebpackConfig, {
   },
   devtool: config.build.productionSourceMap ? '#source-map' : false,
   entry: {
-    index: './src/index.ts'
+    index: './src/index.ts',
+    locale: './src/locale/index.ts',
+    'zh-CN': './src/locale/lang/zh-CN.ts',
+    'en': './src/locale/lang/en.ts'
   },
   output: {
     library: 'Calendar',

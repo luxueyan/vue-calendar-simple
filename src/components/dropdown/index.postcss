@@ -2,7 +2,7 @@
 
 @component-namespace cs
   @b dropdown
-    width: 60px
+    min-width: 60px
     height: 100%
     display: inline-block
     position: relative
@@ -27,19 +27,20 @@
     @e list
       background: var(--header-color)
       list-style: none
-      /* border: 0 1px 1px 1px rgba(0,0,0,.05) solid */
+      border: 0 1px 1px 1px rgba(0,0,0,.05) solid
       padding: 0
       margin: 0
-      position: absolute 40px 0 *
+      position: absolute 40px 0 * 0
       display: none
       z-index: 99
       max-height: 200px
       overflow-y: auto
       li
-        padding: 0 5px
+        padding: 0 10px
         line-height: 30px
         font-size: 13px
         cursor: pointer
+        text-align: left
         &:hover
           background: var(--blue-light-color)
           color: var(--text-reverse-color)

@@ -13,7 +13,7 @@ const cols: number[] = range(7)
  * [getMatrix get canledar matrix]
  * @param {number}    y [year]
  * @param {number}    m [month, 0-11]
- * @param {number = 0}     w [weekday type,0 means sunday is first day,1 mean monday is first day]
+ * @param {number = 0}     w [weekday type, 0 means sunday is first day, 1 mean monday is first day]
  */
 function getMatrix(y: number, m: number, w: number) {
   const matrix: number[][] = []

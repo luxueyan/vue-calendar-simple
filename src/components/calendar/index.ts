@@ -9,12 +9,15 @@ import Dropdown from '../dropdown'
 import calendarMatrix from './calendar-matix'
 import { WeekdayType, CalendarViewWay } from '../../enums'
 import { map } from 'lodash'
+import LocaleMixin from '../../mixins/locale'
 const template: Function = require<Function>('./index.pug')
 
 const currentDate = new Date()
+const t = LocaleMixin.methods.t
 
 @Component({
   name: 'Calendar',
+  mixins: [LocaleMixin],
   components: {
     Dropdown
   },
@@ -29,6 +32,7 @@ export default class Calendar extends Vue {
   activeWeekMut: number
   activeYearMut: number
   _defaultDate: Date
+  t: (locale: string) => string
 
   mounted() {
     this._getCalendarMatrix()
@@ -90,7 +94,7 @@ export default class Calendar extends Vue {
       } else if (this.activeMonthMut < 11) {
         this.activeMonthMut += 1
         this.activeWeekMut = 0
-      } else if (this.activeYearMut < Math.max.apply(null, this.years)) {
+      } else if (this.activeYearMut < Math.max.apply(null, map(this.years, 'value'))) {
         this.activeYearMut += 1
         this.activeMonthMut = 0
         this.activeWeekMut = 0
@@ -101,7 +105,7 @@ export default class Calendar extends Vue {
       if (this.activeMonthMut < 11) {
         this.activeMonthMut += 1
         this.activeWeekMut = 0
-      } else if (this.activeYearMut < Math.max.apply(null, this.years)) {
+      } else if (this.activeYearMut < Math.max.apply(null, map(this.years, 'value'))) {
         this.activeYearMut += 1
         this.activeMonthMut = 0
         this.activeWeekMut = 0
@@ -149,9 +153,25 @@ export default class Calendar extends Vue {
 
   get weekShowDays() {
     if (this.weekDayType === WeekdayType.SundayIsFirst) {
-      return ['周日', '周一', '周二', '周三', '周四', '周五', '周六']
+      return [
+        this.t('vsc.weeks.sun'),
+        this.t('vsc.weeks.mon'),
+        this.t('vsc.weeks.tue'),
+        this.t('vsc.weeks.wed'),
+        this.t('vsc.weeks.thu'),
+        this.t('vsc.weeks.fri'),
+        this.t('vsc.weeks.sat')
+      ]
     } else if (this.weekDayType === WeekdayType.MondayIsFirst) {
-      return ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+      return [
+        this.t('vsc.weeks.sun'),
+        this.t('vsc.weeks.mon'),
+        this.t('vsc.weeks.tue'),
+        this.t('vsc.weeks.wed'),
+        this.t('vsc.weeks.thu'),
+        this.t('vsc.weeks.fri'),
+        this.t('vsc.weeks.sat')
+      ]
     }
   }
 
@@ -159,7 +179,7 @@ export default class Calendar extends Vue {
     const weeks = new Array(6)
 
     return map(weeks, (v, k) => ({
-      name: `第${k + 1}周`,
+      name: `${t('vcs.weeksInMonth[' + k + ']')}`,
       value: k
     })).slice(0, this.calendarMatrix.length)
   }
@@ -198,7 +218,7 @@ export default class Calendar extends Vue {
       const currentYear: number = currentDate.getFullYear()
 
       return map(years, (v, k) => ({
-        name: `${currentYear - 6 + k}年`,
+        name: `${currentYear - 6 + k}${t('vcs.yearAppand')}`,
         value: currentYear - 6 + k
       }))
     }
@@ -209,7 +229,7 @@ export default class Calendar extends Vue {
       const months = new Array(12)
 
       return map(months, (v, k) => ({
-        name: `${k + 1}月`,
+        name: `${t('vcs.months[' + k + ']')}`,
         value: k
       }))
     }
